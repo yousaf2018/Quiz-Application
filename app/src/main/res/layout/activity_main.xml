@@ -56,7 +56,7 @@
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/pasword"
+            android:id="@+id/password"
             android:background="@drawable/text_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnSignup"
             android:background="@drawable/btn_primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

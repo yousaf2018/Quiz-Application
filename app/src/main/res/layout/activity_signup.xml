@@ -56,7 +56,7 @@
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/pasword"
+            android:id="@+id/password"
             android:background="@drawable/text_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnSignup"
             android:background="@drawable/btn_primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,12 +89,14 @@
             android:text="Signup" />
 
         <TextView
-            android:id="@+id/btnSinup"
+            android:id="@+id/textSinup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:textColor="@color/SecondaryColor"
             android:textAlignment="center"
+            android:clickable="true"
+            android:onClick="@+id/btnSinup"
             android:text="@string/AlreadyAccount"
             />
 
