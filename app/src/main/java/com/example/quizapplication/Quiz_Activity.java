@@ -8,13 +8,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Quiz_Activity extends AppCompatActivity {
+    private static final String TAG = "Check";
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
+    RecyclerView recyclerView1;
+    LinearLayoutManager  linearLayoutManager;
+    List<Model_Class>itemList;
+    RecyclerView.Adapter adapter;
 
     // Make sure to be using androidx.appcompat.app.ActionBarDrawerToggle version.
     private ActionBarDrawerToggle drawerToggle;
@@ -33,7 +43,33 @@ public class Quiz_Activity extends AppCompatActivity {
 
         // Find our drawer view
         mDrawer = (DrawerLayout) findViewById(R.id.mainDrawer);
+        //Recycler View
+        initData();
+        initRecyclerView();
+
     }
+
+    private void initData() {
+         itemList =new ArrayList<>();
+         itemList.add(new Model_Class(R.drawable.ic_namal_png,"Mobile Application Development"));
+         itemList.add(new Model_Class(R.drawable.ic_namal_png,"Computer Networks"));
+         itemList.add(new Model_Class(R.drawable.ic_namal_png,"Machine Learning"));
+         itemList.add(new Model_Class(R.drawable.ic_namal_png,"Artificial Intelligence"));
+         itemList.add(new Model_Class(R.drawable.ic_namal_png,"Numerical Methods"));
+        itemList.add(new Model_Class(R.drawable.ic_namal_png,"Information Retrieval"));
+        itemList.add(new Model_Class(R.drawable.ic_namal_png,"Web Technologies"));
+    }
+    public void initRecyclerView() {
+        recyclerView1 = findViewById(R.id.recyclerView);
+        linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        recyclerView1.setLayoutManager(linearLayoutManager);
+        adapter = new ProgrammingAdapter(itemList);
+        recyclerView1.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
