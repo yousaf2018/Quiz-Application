@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,8 +15,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import org.w3c.dom.Text;
 
 public class Login extends AppCompatActivity {
 
@@ -52,7 +49,7 @@ public class Login extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(), "Login Successfully", Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(Login.this, Quiz_Activity.class));
+                                startActivity(new Intent(Login.this, Courses_Dashboard.class));
                             } else {
                                 Toast.makeText(getApplicationContext(), "Login not Successfully", Toast.LENGTH_LONG).show();
 

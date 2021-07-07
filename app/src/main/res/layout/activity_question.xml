@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuestionActivity">
+
+    <TextView
+        android:id="@+id/question"
+        style="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="5dp"
+        android:text="Question i hove in mind i want to do nothing in my life of pfodf ?"
+        android:textAlignment="center"
+        android:textColor="@color/SecondaryColor"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="244dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="273dp"
+        android:layout_marginBottom="88dp"
+        app:layout_constraintBottom_toTopOf="@+id/submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question">
+
+        <RadioButton
+            android:id="@+id/opt1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Option1"
+            android:onClick="checkButton"
+            android:checked="true"
+            android:textColor="@color/SecondaryColor" />
+
+        <RadioButton
+            android:id="@+id/opt2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="checkButton"
+            android:text="Option2"
+            android:textColor="@color/SecondaryColor" />
+
+        <RadioButton
+            android:id="@+id/opt3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Option3"
+            android:onClick="checkButton"
+            android:textColor="@color/SecondaryColor" />
+
+        <RadioButton
+            android:id="@+id/opt4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="checkButton"
+            android:text="Option4"
+            android:textColor="@color/SecondaryColor" />
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

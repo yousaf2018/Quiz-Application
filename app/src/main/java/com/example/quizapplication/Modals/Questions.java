@@ -1,4 +1,4 @@
-package com.example.quizapplication;
+package com.example.quizapplication.Modals;
 
 public class Questions {
     private String desc;
@@ -7,7 +7,28 @@ public class Questions {
     private String opt3;
     private String opt4;
     private String ans;
-    private String userAns;
+    private  String userAns;
+    public Questions(){
+
+    }
+
+    public Questions(String desc, String opt1, String opt2, String opt3, String opt4, String ans, String userAns) {
+        this.desc = desc;
+        this.opt1 = opt1;
+        this.opt2 = opt2;
+        this.opt3 = opt3;
+        this.opt4 = opt4;
+        this.ans = ans;
+
+    }
+
+    public String getUserAns() {
+        return userAns;
+    }
+
+    public void setUserAns(String userAns) {
+        this.userAns = userAns;
+    }
 
     public String getDesc() {
         return desc;
@@ -57,11 +78,10 @@ public class Questions {
         this.ans = ans;
     }
 
-    public String getUserAns() {
-        return userAns;
+
+    @Override
+    public String toString(){
+        return "Description: "+desc+"Option 1:"+opt1+"Option 2:"+opt2+"Option 3:"+opt3+"Option 4:"+opt4+"Answer:"+ans;
     }
 
-    public void setUserAns(String userAns) {
-        this.userAns = userAns;
-    }
 }

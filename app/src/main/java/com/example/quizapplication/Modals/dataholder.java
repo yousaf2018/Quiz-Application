@@ -1,4 +1,4 @@
-package com.example.quizapplication;
+package com.example.quizapplication.Modals;
 
 public class dataholder {
     String email,password;

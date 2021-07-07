@@ -1,10 +1,10 @@
-package com.example.quizapplication;
+package com.example.quizapplication.Modals;
 
 public class Model_Class {
     private int quiz_icon;
     private String quiz_title;
 
-    Model_Class(int quiz_icon,String quiz_title){
+    public Model_Class(int quiz_icon, String quiz_title){
         this.quiz_icon = quiz_icon;
         this.quiz_title = quiz_title;
     }

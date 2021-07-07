@@ -1,4 +1,4 @@
-package com.example.quizapplication;
+package com.example.quizapplication.Modals;
 
 import android.os.Build;
 
@@ -10,10 +10,8 @@ import java.util.Map;
 public class quiz {
     private String id;
     private String title;
-    private Map<String,Questions> questions = Map.of();
-    public  quiz(){
-
-    }
+    private Map<String, Questions> questions = Map.of();
+    public  quiz(){}
     public quiz(String id, String title, Map<String, Questions> questions) {
         this.id = id;
         this.title = title;
@@ -43,4 +41,5 @@ public class quiz {
     public void setQuestions(Map<String, Questions> questions) {
         this.questions = questions;
     }
+
 }
