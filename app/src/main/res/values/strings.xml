@@ -11,4 +11,5 @@
     <string name="SignupAd">Donot have account? Signup</string>
     <string name="AlreadyAccount">Already have account? Login</string>
     <string name="dailyQuizes">Daily Quizes Subject Wise</string>
+    <string name="course_name">None</string>
 </resources>

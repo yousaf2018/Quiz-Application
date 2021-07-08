@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizapplication.Adapter.coursesAdapter;
+import com.example.quizapplication.Adapter.quizAdapter;
 import com.example.quizapplication.Modals.Model_Class;
 import com.example.quizapplication.Modals.quiz;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -43,9 +45,11 @@ public class quiz_dashboard extends AppCompatActivity {
     List<Model_Class>itemList;
     ArrayList<quiz> quiz_list = new ArrayList<quiz>();
     RecyclerView.Adapter adapter;
+    TextView course_name;
     FirebaseFirestore firestore;
     String quizTitle;
     String userID;
+    String course_name2;
     private static final String TAG = "Check";
     // Make sure to be using androidx.appcompat.app.ActionBarDrawerToggle version.
     private ActionBarDrawerToggle drawerToggle;
@@ -54,9 +58,12 @@ public class quiz_dashboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz_);
+        setContentView(R.layout.activity_quiz_2);
+        course_name = findViewById(R.id.course_name);
         Intent intent = getIntent();
         quizTitle = intent.getStringExtra("quizTitle");
+        course_name2 = quizTitle;
+        course_name.setText(quizTitle);
         // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.AppBar);
         setSupportActionBar(toolbar);
@@ -77,7 +84,6 @@ public class quiz_dashboard extends AppCompatActivity {
     private void setUpFirsStore() {
         firestore = FirebaseFirestore.getInstance();
         Map<String, Object> data1 = new HashMap<>();
-        Log.d(TAG, "I am here to printing the data of other class activity: "+quizTitle);
         firestore.collection(quizTitle).get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -106,11 +112,11 @@ public class quiz_dashboard extends AppCompatActivity {
         itemList.add(new Model_Class(R.drawable.ic_icons8_quizlet,"No Quizes Yet"));
     }
     public void initRecyclerView() {
-        recyclerView1 = findViewById(R.id.recyclerView);
+        recyclerView1 = findViewById(R.id.recyclerView2);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         gridLayoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView1.setLayoutManager(gridLayoutManager);
-        adapter = new coursesAdapter(itemList);
+        adapter = new quizAdapter(itemList,quizTitle);
         recyclerView1.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

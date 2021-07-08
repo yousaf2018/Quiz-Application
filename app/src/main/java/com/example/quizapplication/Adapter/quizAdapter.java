@@ -2,6 +2,8 @@ package com.example.quizapplication.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizapplication.Modals.Model_Class;
+import com.example.quizapplication.QuestionActivity;
 import com.example.quizapplication.R;
 import com.example.quizapplication.quiz_dashboard;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -23,9 +28,11 @@ public class quizAdapter extends RecyclerView.Adapter<quizAdapter.ProgramViewHol
     private List<Model_Class> itemList;
     private  View itemview;
     private Context context;
+    private String course_name;
 
-    public  quizAdapter(List<Model_Class>itemList){
+    public  quizAdapter(List<Model_Class>itemList,String course_name){
         this.itemList = itemList;
+        this.course_name = course_name;
     }
     @Override
     public ProgramViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -65,9 +72,11 @@ public class quizAdapter extends RecyclerView.Adapter<quizAdapter.ProgramViewHol
             itemview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, quiz_dashboard.class);
-                    intent.putExtra("qu",quiz_title1);
-                    context.startActivity(intent);                }
+                    Intent intent = new Intent(context, QuestionActivity.class);
+                    intent.putExtra("course_name", course_name);
+                    Log.d("Hiiii",course_name);
+                    context.startActivity(intent);
+                }
             });
         }
     }

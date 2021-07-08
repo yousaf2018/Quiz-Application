@@ -3,6 +3,7 @@ package com.example.quizapplication;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -27,7 +28,7 @@ public class Courses_Dashboard extends AppCompatActivity {
     private Toolbar toolbar;
     private NavigationView nvDrawer;
     RecyclerView recyclerView1;
-
+    TextView course_name;
     LinearLayoutManager  linearLayoutManager;
     List<Model_Class>itemList;
     ArrayList<quiz> quiz_list = new ArrayList<quiz>();
