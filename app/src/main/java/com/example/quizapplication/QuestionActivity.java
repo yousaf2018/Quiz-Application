@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.quizapplication.Modals.Model_Class;
 import com.example.quizapplication.Modals.Questions;
 import com.example.quizapplication.Modals.quiz;
+import com.google.android.datatransport.runtime.dagger.Reusable;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -39,6 +40,7 @@ public class QuestionActivity extends AppCompatActivity {
     String quiz;
     RadioButton option1;
     RadioButton option2;
+    String Result;
     RadioButton option3;
     RadioButton option4;
     TextView course_name;
@@ -67,13 +69,22 @@ public class QuestionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int radioId = radioGroup.getCheckedRadioButtonId();
                 button = findViewById(radioId);
-                Log.d("Checking","Clicked value-->"+button.getText().toString()+"  Final Answer-->"+answer);
                 userAnswer = button.getText().toString();
-                if (userAnswer.compareTo(answer)==0){
-                    Toast.makeText(getApplicationContext(),"Congratulation right answer",Toast.LENGTH_LONG).show();
+                Log.d("Checking","Clicked value-->"+button.getText().toString()+"  Final Answer-->"+answer);
+                boolean resultOfComparison=userAnswer.equals(answer);
+                if (resultOfComparison==true){
+                    Intent intent = new Intent(getApplicationContext(), Result.class);
+                    Result = "1";
+                    intent.putExtra("Result", Result);
+                    getApplicationContext().startActivity(intent);
+
                 }
                 else{
-                    Toast.makeText(getApplicationContext(),"Sorry wrong answer",Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(getApplicationContext(), Result.class);
+                    Result = "0";
+                    intent.putExtra("Result",Result);
+                    getApplicationContext().startActivity(intent);
                 }
             }
         });
